@@ -1,0 +1,178 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 100vh;
+    background-color: #25252d;
+    overflow: hidden;
+}
+
+.container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 100vh;
+    background-color: #25252d;
+}
+
+.clock {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 490px;
+    height: 500px;
+    background-color: #25252d;
+    border-top-right-radius: 50%;
+    border-bottom-left-radius: 20%;
+    box-shadow: rgba(0, 179, 255, 0.267) 0px 2px 4px 0.5px, rgba(255, 0, 221, 0.123) 0px 2px 16px 3px, rgb(0, 0, 0) 0px 0px 60px -12px inset, rgba(1, 51, 40, 0.726) 0px 18px 36px -18px inset;
+}
+
+.clock span {
+    position: absolute;
+    inset: 20px;
+    text-align: center;
+    transform: rotate(calc(30deg * var(--i)));
+    color: var(--clr);
+}
+
+.clock span b {
+    font-size: 1.5em;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 600;
+    display: inline-block;
+    transform: rotate(calc(-30deg * var(--i)));
+    padding: 5px;
+    border-radius: 50%;
+    box-shadow: rgba(13, 13, 14, 0.35) 0px 5px 15px;
+}
+
+.circle {
+    position: absolute;
+    width: 320px;
+    height: 320px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    border-radius: 50%;
+}
+
+.circle i {
+    position: absolute;
+    background: var(--clr);
+    transform-origin: bottom;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+}
+
+/* Seconds */
+.circle1 {
+    width: 280px;
+    height: 280px;
+}
+
+.circle:nth-child(1) i {
+    width: 2px;
+    height: 180px;
+}
+
+/* Minute */
+.circle2 {
+    width: 300px;
+    height: 300px;
+}
+
+.circle:nth-child(2) i {
+    width: 4px;
+    height: 140px;
+}
+
+/* Hour */
+.circle3 {
+    width: 250px;
+    height: 250px;
+}
+
+.circle:nth-child(3) i {
+    width: 5px;
+    height: 137px;
+}
+
+.circle::before {
+    content: '';
+    position: absolute;
+    top: -33.5px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--clr);
+    box-shadow: 0 0 20px var(--clr),
+        0 0 60px var(--clr);
+}
+
+.center {
+    background-color: #4545cf;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    box-shadow: rgba(5, 97, 85, 0.849) 0px 0px 20px, rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+    z-index: 1;
+}
+
+@media only screen and (max-width: 585px) {
+    .clock {
+        width: 90vw;
+        height: 90vw;
+    }
+
+    .clock span b {
+        font-size: 14px;
+    }
+
+    .circle {
+        width: 50%;
+        height: 50%;
+    }
+
+    /* Seconds */
+    .circle1 {
+        width: fit-content;
+        height: 50%;
+    }
+
+    .circle:nth-child(1) i {
+        width: 2px;
+        height: 70%;
+    }
+
+    /* Minute */
+    .circle2 {
+        width: fit-content;
+        height: 55%;
+    }
+
+    .circle:nth-child(2) i {
+        width: 4px;
+        height: 50%;
+    }
+
+    /* Hour */
+    .circle3 {
+        width: fit-content;
+        height: 40%;
+    }
+
+    .circle:nth-child(3) i {
+        width: 5px;
+        height: 45%;
+    }
+}
